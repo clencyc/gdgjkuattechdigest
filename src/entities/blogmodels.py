@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime, timezone
 import enum
 import random
-from ..database.core import Base
+from src.database.core import Base
 
 # random comment generator
 def generate_random_commenter_name():
@@ -49,7 +49,7 @@ class blog_posts(Base):
     # Relationships
     comments = relationship("blog_comments", back_populates="post", cascade="all, delete-orphan")
     likes = relationship("blog_likes", back_populates="post", cascade="all, delete-orphan")
-    images = relationship("blog_image", backref="post", cascade="all, delete-orphan")
+    images = relationship("blog_image", back_populates="post", cascade="all, delete-orphan")
 
 class blog_image(Base):
     __tablename__ = "blog_image"
