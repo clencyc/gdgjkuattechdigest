@@ -1,0 +1,40 @@
+services:
+  # FastAPI Web Service
+  - type: web
+    name: gdg-jkuat-tech-digest-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gdg-jkuat-postgres
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+      - key: ENVIRONMENT
+        value: production
+      - key: ADMIN_USERNAME
+        value: gdg_admin
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: gdg.jkuat@gmail.com
+      - key: PYTHONPATH
+        value: /opt/render/project/repo/src
+
+  # PostgreSQL Database
+  - type: pgsql
+    name: gdg-jkuat-postgres
+    databaseName: gdgjkuat_blog
+    user: gdg_admin
+    region: oregon
+    plan: free
+    ipAllowList: []
