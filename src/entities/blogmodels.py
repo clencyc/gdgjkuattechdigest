@@ -38,7 +38,8 @@ class blog_posts(Base):
     tags = Column(String, nullable=True)
 
     # Metadata
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+
     updated_at = Column(DateTime, nullable=True)
     published_at = Column(DateTime, nullable=True)
 
@@ -60,7 +61,8 @@ class blog_image(Base):
     alt_text = Column(String, nullable=True)
 
     # Metadata
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+
     updated_at = Column(DateTime, nullable=True)
 
     # Relationship
@@ -77,7 +79,8 @@ class blog_comments(Base):
     content = Column(Text, nullable=False)
 
     #  Metadata
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+
     updated_at = Column(DateTime, nullable=True)
 
     # Relationships
@@ -91,7 +94,7 @@ class blog_likes(Base):
     post_id = Column(UUID(as_uuid=True), ForeignKey("blog_posts.post_id"), nullable=False)
 
     # Metadata
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
 
     # Relationships
     post = relationship("blog_posts", back_populates="likes")
