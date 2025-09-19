@@ -31,7 +31,7 @@ class PostResponse(BaseModel):
     is_featured: Optional[bool]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PostUpdate(BaseModel):
     title: Optional[str] = None
