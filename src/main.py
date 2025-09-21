@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from src.database.core import engine, Base
 from src.endpoints.episodes import router as episodes_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="GDG JKUAT Tech Digest API",
@@ -8,11 +9,29 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Create tables
-Base.metadata.create_all(bind=engine)
-
 # Include routers
 app.include_router(episodes_router)  # Only episode-based API
+
+
+
+origins = [
+    "http://localhost:3000", 
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173", 
+    "https://gdgjkuattechdigest.onrender.com"
+    # add the frontend live URL here
+
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 @app.get("/")
 async def root():
