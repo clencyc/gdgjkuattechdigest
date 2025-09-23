@@ -18,7 +18,8 @@ origins = [
     "http://localhost:3000", 
     "http://localhost:5173", 
     "http://127.0.0.1:5173", 
-    "https://gdgjkuattechdigest.onrender.com"
+    "https://gdgjkuattechdigest.onrender.com",
+    "https://gdgjkuattechdigest.vercel.app"
     # add the frontend live URL here
 
 ]
