@@ -39,6 +39,7 @@ import OpportunitiesSection from '../components/common/OpportunitiesSection';
 import TechnologiesSection from '../components/common/TechnologiesSection';
 import TeamSection from '../components/common/TeamSection';
 import FAQSection from '../components/common/FAQSection';
+import Footer from '../components/common/Footer';
 
 
 
@@ -54,6 +55,7 @@ const Home = () => {
       <TechnologiesSection />
       <TeamSection />
       <FAQSection />
+      <Footer />
     </Box>
   );
 };
