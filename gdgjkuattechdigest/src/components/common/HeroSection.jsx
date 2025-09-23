@@ -14,6 +14,7 @@ import {
   Groups
 } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import heroImage from '../../assets/gdg-hero-image.png';
 
 // Custom styled components to override Material-UI Grid behavior
@@ -117,9 +118,23 @@ const ButtonContainer = styled('div')(({ theme }) => ({
   }
 }));
 
+// Styled Link component that looks like a button
+const StyledRouterButton = styled(Button)(({ theme }) => ({
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+  }
+}));
+
 const HeroSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleEpisodesClick = () => {
+    navigate('/episodes');
+  };
 
   return (
     <HeroContainer>
@@ -215,10 +230,11 @@ const HeroSection = () => {
                 Join Our Community
               </Button>
               
-              <Button
+              <StyledRouterButton
+                component={Link}
+                to="/episodes"
                 variant="outlined"
                 size="large"
-                href="/episodes"
                 endIcon={<ArrowForward />}
                 sx={{ 
                   px: 4, 
@@ -228,15 +244,17 @@ const HeroSection = () => {
                   fontSize: { xs: '0.9rem', md: '1rem' },
                   minWidth: { xs: 'auto', sm: '180px' },
                   borderWidth: 2,
+                  textDecoration: 'none',
                   '&:hover': {
                     borderWidth: 2,
                     transform: 'translateY(-2px)',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none'
                   }
                 }}
               >
                 Explore Episodes
-              </Button>
+              </StyledRouterButton>
             </ButtonContainer>
           </TextSection>
           <ImageSection>
