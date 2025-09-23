@@ -125,27 +125,51 @@ const HeroSection = () => {
     <HeroContainer>
       <Container maxWidth="lg">
         <HeroGrid>
-          {/* Text Content - Left side on desktop */}
           <TextSection>
-            <Typography
-              variant="h2"
-              component="h1"
-              gutterBottom
+            <Box
               sx={{
-                fontWeight: 'bold',
-                color: 'primary.main',
-                fontSize: { 
-                  xs: '2.5rem', 
-                  sm: '3rem', 
-                  md: '3.5rem',
-                  lg: '4rem' 
-                },
-                lineHeight: { xs: 1.2, md: 1.1 },
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                justifyContent: { xs: 'center', md: 'flex-start' },
                 mb: 2
               }}
             >
-              GDG JKUAT
-            </Typography>
+              {[
+                { letter: 'G', color: '#4285F4' }, // Blue
+                { letter: 'D', color: '#EA4335' }, // Red
+                { letter: 'G', color: '#FBBC05' }, // Yellow
+                { letter: ' ', color: 'transparent' }, // Space
+                { letter: 'J', color: '#4285F4' }, // Blue
+                { letter: 'K', color: '#34A853' }, // Green
+                { letter: 'U', color: '#EA4335' }, // Red
+                { letter: 'A', color: '#FBBC05' }, // Yellow
+                { letter: 'T', color: '#4285F4' }  // Blue
+              ].map((item, index) => (
+                <Typography
+                  key={index}
+                  component="span"
+                  sx={{
+                    fontFamily: '"Product Sans", "Google Sans", "Roboto", sans-serif',
+                    fontWeight: 500,
+                    fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem', lg: '4rem' },
+                    lineHeight: { xs: 1.2, md: 1.1 },
+                    color: item.color,
+                    mx: item.letter === ' ' ? 1 : 0,
+                    letterSpacing: '-0.02em',
+                    display: 'inline-block',
+                    textShadow: '0px 1px 1px rgba(0,0,0,0.1)',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      textShadow: '0px 2px 3px rgba(0,0,0,0.15)'
+                    }
+                  }}
+                >
+                  {item.letter}
+                </Typography>
+              ))}
+            </Box>
             
             <Typography 
               variant="body1" 
@@ -215,8 +239,6 @@ const HeroSection = () => {
               </Button>
             </ButtonContainer>
           </TextSection>
-          
-          {/* Image Section - Right side on desktop */}
           <ImageSection>
             <StyledPaper elevation={8}>
               <img

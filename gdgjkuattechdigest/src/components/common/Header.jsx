@@ -20,32 +20,51 @@ import {
   Search as SearchIcon,
   Person as PersonIcon
 } from '@mui/icons-material';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate(); // For programmatic navigation
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Episodes', href: '/episodes' },
-    { label: 'Technologies', href: '/technologies' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Home', path: '/' },
+    { label: 'Episodes', path: '/episodes' },
+    { label: 'Technologies', path: '/technologies' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' }
   ];
 
+  const handleNavClick = (path) => {
+    navigate(path);
+    setMobileOpen(false); // Close drawer after navigation
+  };
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         Tech Digest
       </Typography>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.label} component="a" href={item.href} disablePadding>
+          <ListItem 
+            key={item.label} 
+            component={Link} 
+            to={item.path}
+            onClick={() => setMobileOpen(false)}
+            sx={{ 
+              textDecoration: 'none',
+              color: 'inherit',
+              '&:hover': {
+                backgroundColor: 'action.hover',
+              }
+            }}
+          >
             <ListItemText primary={item.label} sx={{ textAlign: 'center' }} />
           </ListItem>
         ))}
@@ -78,20 +97,25 @@ const Header = () => {
                     width: 40,
                     height: 40,
                     bgcolor: 'primary.main',
-                    display: { xs: 'none', sm: 'flex' }
+                    display: { xs: 'none', sm: 'flex' },
+                    cursor: 'pointer'
                   }}
+                  onClick={() => navigate('/')}
                 >
                   TD
                 </Avatar>
                 <Typography
                   variant="h6"
-                  component="a"
-                  href="/"
+                  component={Link}
+                  to="/"
                   sx={{
                     textDecoration: 'none',
                     color: 'inherit',
                     fontWeight: 'bold',
-                    fontSize: { xs: '1.1rem', sm: '1.5rem' }
+                    fontSize: { xs: '1.1rem', sm: '1.5rem' },
+                    '&:hover': {
+                      color: 'primary.main'
+                    }
                   }}
                 >
                   Tech Digest
@@ -104,14 +128,16 @@ const Header = () => {
               {navItems.map((item) => (
                 <Button
                   key={item.label}
-                  href={item.href}
+                  component={Link}
+                  to={item.path}
                   color="inherit"
                   sx={{
                     textTransform: 'none',
                     fontWeight: 500,
                     fontSize: '1rem',
                     '&:hover': {
-                      color: 'primary.main'
+                      color: 'primary.main',
+                      backgroundColor: 'transparent'
                     }
                   }}
                 >
@@ -139,11 +165,14 @@ const Header = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+          '& .MuiDrawer-paper': { 
+            boxSizing: 'border-box', 
+            width: 240,
+          },
         }}
       >
         {drawer}

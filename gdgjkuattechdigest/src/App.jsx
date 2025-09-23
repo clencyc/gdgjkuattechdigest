@@ -1,6 +1,7 @@
 // src/App.jsx
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // Changed here
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { AdminProvider } from './components/admin/AdminRoute';
@@ -90,7 +91,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AdminProvider>
-        <Router>
+        <Router> {/* Now this is HashRouter */}
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<Home />} />
