@@ -237,27 +237,11 @@ const Header = () => {
                     textDecoration: 'none',
                     fontWeight: 'bold',
                     fontSize: { xs: '0.9rem', sm: '1.2rem', md: '1.4rem' },
-                    letterSpacing: '0.5px'
+                    letterSpacing: '0.5px',
+                    color: '#000000'
                   }}
                 >
-                  <span style={{ color: '#4285F4' }}>G</span>
-                  <span style={{ color: '#EA4335' }}>D</span>
-                  <span style={{ color: '#FBBC05' }}>G</span>
-                  <span style={{ color: '#4285F4' }}>J</span>
-                  <span style={{ color: '#34A853' }}>K</span>
-                  <span style={{ color: '#EA4335' }}>U</span>
-                  <span style={{ color: '#FBBC05' }}>A</span>
-                  <span style={{ color: '#4285F4' }}>T</span>
-                  <span style={{ color: '#34A853' }}>T</span>
-                  <span style={{ color: '#EA4335' }}>E</span>
-                  <span style={{ color: '#FBBC05' }}>C</span>
-                  <span style={{ color: '#4285F4' }}>H</span>
-                  <span style={{ color: '#34A853' }}>D</span>
-                  <span style={{ color: '#EA4335' }}>I</span>
-                  <span style={{ color: '#FBBC05' }}>G</span>
-                  <span style={{ color: '#4285F4' }}>E</span>
-                  <span style={{ color: '#34A853' }}>S</span>
-                  <span style={{ color: '#EA4335' }}>T</span>
+                  JKUATTECHDIGEST
                 </Typography>
               </Box>
             </Box>
