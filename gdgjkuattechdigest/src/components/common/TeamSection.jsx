@@ -18,6 +18,18 @@ import {
   GitHub
 } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
+import EvaImage from '../../assets/leads/Eva.jpg'
+import AnillaImage from '../../assets/leads/anilla.jpg'
+import JudeImage from '../../assets/leads/jude.jpg'
+import MosonikImage from '../../assets/leads/mosonik.jpg'
+import FavorImage from '../../assets/leads/Favor.jpg'
+import MuleraImage from '../../assets/leads/mulera.jpg'
+import JeffImage from '../../assets/leads/jeff.jpg'
+import WellsImage from '../../assets/leads/wells.jpg'
+import NateImage from '../../assets/leads/Nate.jpg'
+import JoanImage from '../../assets/leads/joan.jpg'
+import PeachesImage from '../../assets/leads/peaches.jpg'
+
 
 // Custom styled components for better control
 const TeamSectionContainer = styled(Box)(({ theme }) => ({
@@ -243,7 +255,7 @@ const TeamSection = () => {
     {
       name: 'Eva Muthoni',
       role: 'Cybersecurity Lead',
-      image: '/api/placeholder/150/150',
+      image: EvaImage,
       linkedin: 'https://www.linkedin.com/in/eva-muthoni-a94355348/',
       twitter: '',
       github: 'https://github.com/teqeva'
@@ -267,7 +279,7 @@ const TeamSection = () => {
     {
       name: 'Wells Stanley',
       role: 'Mobile Development Lead',
-      image: '/api/placeholder/150/150',
+      image: WellsImage,
       linkedin: 'https://www.linkedin.com/in/wells-stanley',
       twitter: '',
       github: 'https://github.com/lw-wells'
@@ -275,7 +287,7 @@ const TeamSection = () => {
     {
       name: 'Geoffrey Owuor',
       role: 'Web Development Lead',
-      image: '/api/placeholder/150/150',
+      image: JeffImage,
       linkedin: '',
       twitter: 'https://x.com/geoffowuor?t=fHYJavjiqAH9Qbvlr_L0-g&s=09',
       github: 'https://github.com/geoffowuor'
@@ -283,7 +295,7 @@ const TeamSection = () => {
     {
       name: 'Rhodah Mulera',
       role: 'Social Media Lead',
-      image: '/api/placeholder/150/150',
+      image: MuleraImage,
       linkedin: 'https://www.linkedin.com/in/rhodah-mulera-83972a1bb/',
       twitter: 'https://x.com/mulera_123',
       github: 'https://github.com/Ro-wdy'
@@ -291,7 +303,7 @@ const TeamSection = () => {
     {
       name: 'Jude Hunja',
       role: 'Cloud Computing Lead',
-      image: '/api/placeholder/150/150',
+      image: JudeImage,
       linkedin: 'https://www.linkedin.com/in/judehunja',
       twitter: 'https://x.com/JudeHunja',
       github: 'https://github.com/judhunja'
@@ -307,7 +319,7 @@ const TeamSection = () => {
     {
       name: 'Anilla Wambaki',
       role: 'Internet Of Things Lead',
-      image: '/api/placeholder/150/150',
+      image: AnillaImage,
       linkedin: '',
       twitter: '',
       github: ''
@@ -315,7 +327,7 @@ const TeamSection = () => {
     {
       name: 'Faith Mososnik',
       role: 'Women In Tech Lead',
-      image: '/api/placeholder/150/150',
+      image: MosonikImage,
       linkedin: '',
       twitter: '',
       github: ''
@@ -323,7 +335,7 @@ const TeamSection = () => {
     {
       name: 'Favor Nyambura',
       role: 'Blockchain & Web3 Lead',
-      image: '/api/placeholder/150/150',
+      image: FavorImage,
       linkedin: '',
       twitter: '',
       github: ''
@@ -331,7 +343,7 @@ const TeamSection = () => {
     {
       name: 'Nathaniel Sherry',
       role: 'Blockchain & Web3 Co-lead',
-      image: '/api/placeholder/150/150',
+      image: NateImage,
       linkedin: '',
       twitter: '',
       github: ''
@@ -339,7 +351,7 @@ const TeamSection = () => {
     {
       name: 'Joan Kinoti',
       role: 'AI/ML Lead',
-      image: '/api/placeholder/150/150',
+      image: JoanImage,
       linkedin: '',
       twitter: '',
       github: ''
@@ -355,7 +367,7 @@ const TeamSection = () => {
     {
       name: 'Peaches Njenga',
       role: 'UI/UX Lead',
-      image: '/api/placeholder/150/150',
+      image: PeachesImage,
       linkedin: '',
       twitter: '',
       github: ''
